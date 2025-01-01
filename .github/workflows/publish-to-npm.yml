@@ -22,8 +22,8 @@ jobs:
       - run: npm ci --legacy-peer-deps
         name: Install dependencies
 
-      # Install Rollup Linux dependencies
-      - run: npm install @rollup/rollup-linux-x64-gnu --legacy-peer-deps
+      # Install Rollup Linux dependencies (without saving to package.json)
+      - run: npm install --no-save @rollup/rollup-linux-x64-gnu --legacy-peer-deps
         name: Install Rollup Linux dependencies
 
       # Build the project
