@@ -7,8 +7,15 @@
     "declaration": true,
     "declarationDir": "./dist/",
     "declarationMap": true,
-		"jsx": "react",
-		"moduleResolution": "node",
-		"baseUrl": ".", // Base URL to resolve non-relative module names
-  }
+    "jsx": "react",
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "strict": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": true,
+    "isolatedModules": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

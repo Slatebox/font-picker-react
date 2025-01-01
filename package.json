@@ -1,6 +1,6 @@
 {
-	"name": "font-picker-react",
-	"version": "3.6.0",
+	"name": "@slatebox/font-picker-react",
+	"version": "3.7.0",
 	"description": "Font selector component for Google Fonts",
 	"author": {
 		"name": "Tim Heckel",
@@ -72,6 +72,8 @@
 		"@storybook/react-webpack5": "^8.3.5",
 		"@storybook/test": "^8.3.5",
 		"@tsconfig/recommended": "^1.0.7",
+		"@types/react": "^18.3.18",
+		"@types/react-dom": "^18.3.5",
 		"@typescript-eslint/eslint-plugin": "^8.8.1",
 		"@typescript-eslint/parser": "^8.8.1",
 		"babel-loader": "^9.2.1",

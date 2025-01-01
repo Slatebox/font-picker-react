@@ -1,0 +1,33 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout repository
+      - uses: actions/checkout@v3
+
+      # Set up Node.js and cache dependencies
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 22.11.0
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'npm'
+
+      # Install all dependencies including devDependencies
+      - run: npm ci --legacy-peer-deps
+        name: Install dependencies
+
+      # Build the project
+      - run: npm run build
+        name: Build project
+
+      # Publish to npm
+      - run: npm publish --access public
+        name: Publish package
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_AUTH_TOKEN }}
