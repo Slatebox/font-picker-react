@@ -1,6 +1,6 @@
 {
 	"name": "@slatebox/font-picker-react",
-	"version": "3.7.0",
+	"version": "3.7.1",
 	"description": "Font selector component for Google Fonts",
 	"author": {
 		"name": "Tim Heckel",
