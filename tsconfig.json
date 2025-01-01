@@ -1,9 +1,14 @@
 {
-	"extends": "@samuelmeuli/tsconfig",
-	"compilerOptions": {
-		"module": "ES6",
-		"declaration": true,
-		"declarationDir": "./dist/",
-		"declarationMap": true
-	}
+  "extends": "@tsconfig/recommended",
+  "compilerOptions": {
+    "module": "ES6",
+    "target": "ES6",
+    "skipLibCheck": true,
+    "declaration": true,
+    "declarationDir": "./dist/",
+    "declarationMap": true,
+		"jsx": "react",
+		"moduleResolution": "node",
+		"baseUrl": ".", // Base URL to resolve non-relative module names
+  }
 }

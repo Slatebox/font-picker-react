@@ -1,14 +1,15 @@
 {
 	"name": "font-picker-react",
-	"version": "3.5.2",
+	"version": "3.6.0",
 	"description": "Font selector component for Google Fonts",
 	"author": {
-		"name": "Samuel Meuli",
-		"email": "me@samuelmeuli.com",
-		"url": "https://samuelmeuli.com"
+		"name": "Tim Heckel",
+		"email": "tim@slatebox.com",
+		"url": "https://slatebox.com"
 	},
-	"repository": "github:samuelmeuli/font-picker-react",
-	"homepage": "https://font-picker.samuelmeuli.com",
+	"type": "module",
+	"repository": "github:slatebox/font-picker-react",
+	"homepage": "https://github.com/Slatebox/font-picker-react",
 	"license": "MIT",
 	"keywords": [
 		"fonts",
@@ -28,9 +29,9 @@
 		"./dist/"
 	],
 	"scripts": {
-		"start": "npm-run-all build:clean build:ts --parallel start:*",
+		"start": "NODE_OPTIONS=--openssl-legacy-provider npm-run-all build:clean build:ts --parallel start:*",
 		"start:ts": "rollup --config --sourcemap --watch",
-		"start:storybook": "start-storybook --port 3000",
+		"start:storybook": "NODE_OPTIONS=--openssl-legacy-provider storybook dev --port 3000",
 		"build": "run-s build:*",
 		"build:clean": "rm -rf ./dist/ && mkdir ./dist/",
 		"build:ts": "rollup --config",
@@ -42,49 +43,72 @@
 		"format": "prettier --ignore-path ./.gitignore --list-different \"**/*.{css,html,js,json,jsx,less,md,scss,ts,tsx,vue,yaml,yml}\"",
 		"format:fix": "yarn format --write",
 		"version": "yarn build",
-		"release": "np"
+		"release": "np",
+		"storybook": "storybook dev -p 6006",
+		"build-storybook": "storybook build"
 	},
 	"dependencies": {
-		"@samuelmeuli/font-manager": "^1.4.0"
+		"@slatebox/font-manager": "^1.5.0",
+		"rollup-plugin-postcss": "^4.0.2"
 	},
 	"peerDependencies": {
-		"@types/react": "^16.0.0",
-		"react": "^16.0.0"
+		"@types/react": "^18.3.1",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.9.0",
-		"@samuelmeuli/eslint-config": "^6.0.0",
-		"@samuelmeuli/prettier-config": "^2.0.1",
-		"@samuelmeuli/stylelint-config": "^3.0.0",
-		"@samuelmeuli/tsconfig": "^1.0.0",
-		"@storybook/react": "^5.3.18",
-		"@types/react": "^16.9.34",
-		"@typescript-eslint/eslint-plugin": "^2.29.0",
-		"@typescript-eslint/parser": "^2.29.0",
-		"babel-loader": "^8.1.0",
-		"eslint": "6.8.0",
-		"eslint-config-airbnb": "18.1.0",
-		"eslint-config-prettier": "^6.11.0",
-		"eslint-plugin-import": "^2.20.2",
-		"eslint-plugin-jsx-a11y": "^6.2.3",
-		"eslint-plugin-react": "^7.19.0",
-		"eslint-plugin-react-hooks": "^2.5.1",
-		"np": "^6.2.2",
-		"npm-run-all": "^4.1.3",
-		"prettier": "^2.0.5",
-		"react": "^16.13.1",
-		"react-dom": "^16.13.1",
-		"rollup": "^1.32.1",
-		"rollup-plugin-typescript2": "^0.27.0",
-		"stylelint": "^12.0.1",
-		"typescript": "^3.8.3"
+		"@babel/core": "^7.25.8",
+		"@chromatic-com/storybook": "^2.0.2",
+		"@storybook/addon-actions": "^8.3.5",
+		"@storybook/addon-essentials": "^8.3.5",
+		"@storybook/addon-interactions": "^8.3.5",
+		"@storybook/addon-links": "^8.3.5",
+		"@storybook/addon-mdx-gfm": "^8.3.5",
+		"@storybook/addon-onboarding": "^8.3.5",
+		"@storybook/addon-storysource": "^8.3.5",
+		"@storybook/addon-webpack5-compiler-swc": "^1.0.5",
+		"@storybook/blocks": "^8.3.5",
+		"@storybook/react": "^8.3.5",
+		"@storybook/react-webpack5": "^8.3.5",
+		"@storybook/test": "^8.3.5",
+		"@tsconfig/recommended": "^1.0.7",
+		"@typescript-eslint/eslint-plugin": "^8.8.1",
+		"@typescript-eslint/parser": "^8.8.1",
+		"babel-loader": "^9.2.1",
+		"css-loader": "^7.1.2",
+		"eslint-config-airbnb": "^19.0.4",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-import": "^2.31.0",
+		"eslint-plugin-jsx-a11y": "^6.10.0",
+		"eslint-plugin-react": "^7.37.1",
+		"eslint-plugin-react-hooks": "^5.0.0",
+		"eslint-plugin-storybook": "^0.9.0",
+		"np": "^10.0.7",
+		"npm-run-all": "^4.1.5",
+		"prettier": "^3.3.3",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1",
+		"rollup": "^4.24.0",
+		"rollup-plugin-tsconfig-paths": "^1.5.2",
+		"rollup-plugin-typescript2": "^0.36.0",
+		"sass": "^1.79.5",
+		"sass-loader": "^16.0.2",
+		"storybook": "^8.3.5",
+		"style-loader": "^4.0.0",
+		"stylelint": "^16.10.0",
+		"stylelint-config-standard": "^36.0.1",
+		"tsconfig-paths": "^4.2.0",
+		"typescript": "^5.6.3"
 	},
 	"browserslist": [
 		"defaults"
 	],
 	"eslintConfig": {
 		"root": true,
-		"extends": "@samuelmeuli/eslint-config/typescript-react",
+		"extends": [
+			"eslint-config-airbnb",
+			"plugin:storybook/recommended"
+		],
 		"env": {
 			"browser": true,
 			"node": true
@@ -104,7 +128,7 @@
 		}
 	},
 	"stylelint": {
-		"extends": "@samuelmeuli/stylelint-config"
+		"extends": "stylelint-config-standard"
 	},
-	"prettier": "@samuelmeuli/prettier-config"
+	"prettier": "prettier-config-standard"
 }
